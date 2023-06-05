@@ -1,0 +1,119 @@
+Proj3: Gerp
+Names: Isaac Monheit and Kabir Pamnani
+Date: 04/25/2022
+
+-------------------------------------------------------------------------------
+README (PHASE 0 AND 1):
+Our Phase 0 and 1 submission contains 2 programs: 
+String Manipulation: A function that strips all leading and trailing
+non-alphanumeric characters
+FSTree Traversal: A tree traversal function that prints out the full paths 
+of each file in the tree on separate lines
+
+TESTING (PHASE 0 AND 1):
+Made a function in ht.cpp that created an instance of the vector of buckets and
+a couple fileStructs with different keys and lines and inserted them into the
+buckets through the vector name, hashTable. Then we checked the keyAt and
+elementAt of those structs and made sure the output was nice.
+
+-------------------------------------------------------------------------------
+README (FINAL): 
+
+README
+You will be required to submit a README along with your code. Your
+README should have the following sections:
+B) Purpose of Program:
+    The purpose of the program is to be able to index a set of files that 
+    is provided by the user, and to use that index to respond to queries.
+    Put simply, users will be able to search for a word (or multiple words)
+    in a directory, and the program will print the occurrences of the word
+    along with which file path it can be found in (if it exists in the 
+    directory). The indexing of the files is done using the hash table 
+    data structure
+
+C) Acknowledgements for any help you received: 
+    TA Office hours, lecture slides + recordings
+
+D) Files provided + short description of their purpose 
+    Bucket.cpp: 
+        This file contains a list of functions that are used for accessing 
+        different members of the struct "fileStruct." 
+    
+    Bucket.h: 
+        The interface of Bucket.cpp, meaning that it contains 
+        the function declarations and headers of the Bucket class
+    
+    ht.cpp: 
+        This is the implementation of the hash table class, which is 
+        where the hash table that indexes the files is created, and all
+        associated functions to manipulate the hash table are implemented.
+        This is where insertion into and searching of the hash table 
+        are coded. Additionally, this class contains the implementation of 
+        the user interaction with the program (i.e. the command loop).
+    
+    ht.h: 
+        The interface of ht.cpp. Contains function declarations, headers 
+        and private/public member variables needed for the implementation
+        of the hash table.
+
+    Makefile:
+        This file contains all the compilation and linking commands that allows 
+        my program to be run correctly. It simplifies the users life so they 
+        don't have to manually compile all the files everytime they want to 
+        run it. It makes the work more efficient.
+
+    stringProcessing.cpp:
+        This file contains the implementation of the function that strips all
+        leading/trailing alphanumeric chars from a given string.
+
+    stringProcessing.h: 
+        Contains the interface for stringProcessing.h, it contains the
+        declaration of the stripNonAlphaNum function and its helper functions
+
+    testing_main.cpp:
+        This is where the program itself is run. The main function is needed 
+        for several reasons: 1) Check that the number of cmd line arguments 
+        are correct 2) check that the output file is opened successfully
+        3) Creating an instance of the file tree 4) Calling the necessary fns
+        on an instance of the ht class to run the program 
+        (treeTraversal and command loop)
+
+    Testing Files: 
+        
+
+
+
+E) How to compile and run your program:
+    Compile: make gerp
+    Run: ./gerp DirectoryToIndex OutputFile
+
+F) Architecural Overview:
+    testing_main.cpp is where our program is run, and this relies on the
+    ht class as it creates an instance of the ht class (a hash table) in order
+    to execute the program (call the necessary functions).
+
+    The ht (hash table) class is connected to almost all other modules in the 
+    way that the hash table created relies on all of the other 
+    classes/functions/implementations. I will provide a breakdown below:
+
+    The hash table is implemented using a vector of "buckets." Each position in
+    the vector is an instance of the bucket class. 
+    
+    The bucket class is a vector of "fileStructs". Each position in this vector 
+    stores a fileStruct. 
+
+    A fileStruct stores member variables which hold data about the files that
+    are being indexed. These include: the line number (int), the key/word 
+    (string) and the full file path.
+
+G)
+
+G An outline of the data structures and algorithms that you used. Given
+that this is a data structures class, you need to always discuss any
+data structures that you used and justify why you used them. For
+this assignment it is imperative that you explain your data structures
+and algorithms in detail, as it will help us understand your code since
+there is no single right way of completing this assignment.
+H Details and an explanation of how you tested the various parts of your
+classes and the program as a whole. You may reference the testing
+files that you submitted to aid in your explanation.
